@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>luv Cat Site</title>
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    
+    <script src="./js/main.js"></script>
 </head>
 <body>
-    
+    <header>
+        <nav class="nav_gnb">
+            <h1 class="nav_gnb_logo">LuvCat</h1>
+
+            <div class="nav_btn_box">
+                <button class="menuButton"><svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="30px" height="30px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path></svg></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <aside id="allMenu">
+            <ul class="menuList">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">TEST</a></li>
+            </ul>
+            <button class="closeBtn" title="메뉴 닫기"><svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img" width="30px" height="30px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945"></path></svg></button>
+        </aside>
+
+        <section class="sec_main">
+            <div class="title_block">
+                <h3 class="stit">나만 고양이 없어?</h3>
+                <h2 class="title">고양이 취향 테스트</h2>
+            </div>
+
+            <button class="btnGo" onclick="nextPage();">GO!</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>모든 문의는 우측에서</p>
+            <ul>
+                <li>Phone : 010 2116 6769</li>
+                <li>Email : chh926@naver.com</li>
+            </ul>
+        </div>
+
+    </footer>
 </body>
 </html>

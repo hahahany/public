@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+button {
+  border: none;
+  background: none;
+}
+
+html, body {
+  font-family: "Pretendard-Regular";
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+}
+header .nav_gnb {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 14px 0 16px;
+}
+header .nav_gnb_logo {
+  font-size: 30px;
+  color: #000;
+  font-weight: 900;
+}
+header .nav_btn_box {
+  margin-left: auto;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 50px 30px;
+}
+footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-content p {
+  margin: 0;
+}
+footer li + li {
+  padding-top: 5px;
+  color: #fff;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 60px);
+}
+section .title_block {
+  text-align: center;
+  font-size: 30px;
+}
+
+.sec_main {
+  background: linear-gradient(182deg, #885fff, #000);
+}
+.sec_main .title {
+  color: #fff;
+  padding-top: 15px;
+  font-weight: 800;
+}
+.sec_main .stit {
+  font-size: 18px;
+  color: #f4f4f4;
+}
+.sec_main .btnGo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  margin: 50px auto 0;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 900;
+  border: 1px solid #f4f4f4;
+  border-radius: 60px;
+}
+
+#allMenu {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  transition: all 0.5s;
+}
+#allMenu.open {
+  right: 0;
+}
+#allMenu .closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+}
+#allMenu .menuList {
+  position: relative;
+  padding: 50px 30px;
+  height: 100%;
+  border-left: 1px solid #ddd;
+}
+#allMenu .menuList li {
+  margin: 10px 0;
+}
+#allMenu .menuList a {
+  font-size: 18px;
+}/*# sourceMappingURL=main.css.map */

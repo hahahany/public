@@ -7,8 +7,10 @@
     
 
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/core.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+    <link rel="stylesheet" href="./css/main.css.map">
     
     <script src="./js/main.js"></script>
 </head>
@@ -32,17 +34,16 @@
             <button class="closeBtn" title="메뉴 닫기"><svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img" width="30px" height="30px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945"></path></svg></button>
         </aside>
 
-        <section class="sec_main">
-            <div class="title_block">
-                <h3 class="stit">나만 고양이 없어?</h3>
-                <h2 class="title">고양이 취향 테스트</h2>
-            </div>
-
-            <button class="btnGo" onclick="nextPage();">GO!</button>
-        </section>
-
-        <section class="sec01">
-            <form action="">
+        <form action="" id="chkData">
+            <section class="first">
+                <div class="title_block">
+                    <h3 class="stit">나만 고양이 없어?</h3>
+                    <h2 class="title">고양이 취향 테스트</h2>
+                </div>
+                <button class="btnGo" type="button" onclick="nextPage('first');">GO!</button>
+            </section>
+            
+            <section class="sec01">
                 <div class="question">
                     <h2 class="title">고양이 고향은?</h2>
                 </div>
@@ -50,40 +51,63 @@
                 <div class="answer">
                     <ul>
                         <li>
-                            <input type="radio" name="q_from" id="q1_chk1">
+                            <input type="radio" name="q1" id="q1_chk1" value="한국">
                             <label for="q1_chk1">한국</label>
                         </li>
                         <li>
-                            <input type="radio" name="q_from" id="q1_chk2">
+                            <input type="radio" name="q1" id="q1_chk2" value="외국">
                             <label for="q1_chk2">외국</label>
                         </li>
                     </ul>
                 </div>
-                <button class="btnNext" onclick="nextPage(1);">GO!</button>
-            </form>
-        </section>
 
-        <section class="sec02">
-            <form action="">
+                <button class="btnNext" type="button" onclick="nextPage('1');">GO!</button>
+            </section>
+
+            <section class="sec02">
                 <div class="question">
-                    <h2 class="title">고양이 고향은?</h2>
+                    <h2 class="title">고양이 털은?</h2>
                 </div>
 
                 <div class="answer">
                     <ul>
                         <li>
-                            <input type="radio" name="q_from" id="q1_chk1">
-                            <label for="q1_chk1">한국</label>
+                            <input type="radio" name="q2" id="q2_chk1" value="단모">
+                            <label for="q2_chk1">단모</label>
                         </li>
                         <li>
-                            <input type="radio" name="q_from" id="q1_chk2">
-                            <label for="q1_chk2">외국</label>
+                            <input type="radio" name="q2" id="q2_chk2" value="장모">
+                            <label for="q2_chk2">장모</label>
                         </li>
                     </ul>
                 </div>
-                <button class="btnNext" onclick="nextPage(2);">GO!</button>
-            </form>
-        </section>
+                <button class="btnNext" type="button" onclick="nextPage('2');">GO!</button>
+            </section>
+
+            <section class="sec03">
+                <div class="question">
+                    <h2 class="title">고양이 색깔은?</h2>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <input type="radio" name="q3" id="q3_chk1" value="흰색">
+                            <label for="q3_chk1">흰색</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="q3" id="q3_chk2" value="검은색">
+                            <label for="q3_chk2">검은색</label>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btnNext" type="button" onclick="goResult();">결과보기!</button>
+            </section>
+
+            <section class="result" style="display:none;">
+                결과 페이지
+            </section>
+        </form>
     </main>
 
     <footer>

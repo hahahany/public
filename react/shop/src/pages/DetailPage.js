@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
+import { Button } from 'react-bootstrap';
 
 let StyledBtn = styled.button`
   background : ${props => props.bg};
@@ -14,6 +15,7 @@ export default function DetailPage(props) {
     let [count, setCount] = useState(0);
     let [sale, setSale] = useState(false);
     let [input, setInput] = useState('');
+    let [changeTab, setChangeTab] = useState(1);
 
     useEffect(()=> {
        let a = setTimeout(() => {
@@ -51,8 +53,26 @@ export default function DetailPage(props) {
                     <p>{result.price}원</p>
                     <button className="btn btn-danger">주문하기</button>
                 </div>
+
+                <div className="flex-lg-grow-1">
+                    <button className="btn btn-danger" onClick={()=> { setChangeTab(1) }}>탭1</button>
+                    <button className="btn btn-danger" onClick={()=> { setChangeTab(2) }}>탭2</button>
+                    <button className="btn btn-danger" onClick={()=> { setChangeTab(3) }}>탭3</button>
+                </div>
+                <div>
+                    <TabContent changeTab={changeTab} />
+                </div>
             </div>
         </div>
     );
 }
 
+function TabContent(props) {
+    if (props.changeTab === 1) {
+        return <div>컨텐츠 1</div>
+    } else if (props.changeTab == 2 ) {
+        return <div>컨텐츠 2</div>
+    } else if (props.changeTab === 3 ) {
+        return <div>컨텐츠 3</div>
+    }
+}

@@ -3,14 +3,53 @@ import {Container,Nav,Navbar,Button,Dropdown  } from 'react-bootstrap';
 import ShoesBox from './components/ShoesBox';
 import EventPage from './pages/EventPage';
 import data from './data';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import DetailPage from './pages/DetailPage';
+import axios from 'axios';
 
 function App() {
-  let [shoesData] = useState(data);
   let navigate = useNavigate();
+  let [shoesData, setShoesData] = useState(data);
+  let [loading, setLoading] = useState(false);
+  let [alertMore, setAlertMore] = useState(false);
+  let [click, setClick] = useState(0);
 
+  let handleClick = function(){
+    setClick(click + 1);
+  } 
+
+  function moreProduct() {
+    setLoading(true);
+
+    let url;
+    if ( click === 1 ) {
+      url = 'https://codingapple1.github.io/shop/data2.json';
+    } else if ( click === 2 ) {
+      url = 'https://codingapple1.github.io/shop/data3.json';
+    } else if ( click >= 3 ) {
+        setLoading(false);
+        setAlertMore(true);
+      return;
+    }  
+    
+    axios.get(url)
+      .then((result)=>{
+        let copy = [...shoesData, ...result.data];
+        setShoesData(copy);
+        setLoading(false);
+      }).catch(()=>{
+      console.log('실패');
+      setLoading(false);
+    })
+    
+  }
+
+  useEffect(()=>{
+    if ( click !== 0 ) {
+      moreProduct();
+    }
+  },[click]);
   return (
     <div className="App">
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -37,12 +76,17 @@ function App() {
             <div className="main-bg"></div>
             <div className="container">
               <div className="row">
+                {loading && <Loading />}
                 {shoesData.map((items,i) => (
                   <ShoesBox items={items} i={i}></ShoesBox>
                   )
                 )}
+                {alertMore && <AlertMore />}
               </div>
             </div>
+            <button onClick={()=>{
+              handleClick();
+            }}>버튼</button>
           </>
         }></Route>
         <Route path="/detail/:id" element={<DetailPage shoesData={shoesData} /> }></Route>
@@ -56,6 +100,22 @@ function App() {
 
     </div>
   );
+}
+
+function Loading() {
+  return (
+    <div>
+        로딩 중...
+    </div>
+  )
+}
+
+function AlertMore() {
+  return (
+    <div>
+        상품이 없습니다.
+    </div>
+  )
 }
 
 export default App;

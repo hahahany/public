@@ -6,6 +6,7 @@ import data from './data';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import DetailPage from './pages/DetailPage';
+import OrorTest from './pages/OrorTest';
 import axios from 'axios';
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
             }}>버튼</button>
           </>
         }></Route>
+        <Route path="/oror" element={<OrorTest /> }></Route>
         <Route path="/detail/:id" element={<DetailPage shoesData={shoesData} /> }></Route>
         <Route path="/event" element={<EventPage/>}>
           <Route path="one" element={<p>첫주문시 혜택!</p>} /> 
